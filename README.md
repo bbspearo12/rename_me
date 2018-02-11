@@ -14,7 +14,6 @@ Script will extract the zip file to a directory with the same name and directory
 It will then get each file from the directory, read the account number and fetch the accountname from the file.
 File will then be copied to the required output folder with the account name previously fetched.
 
-**Note**
 
 ## Requirements
 
