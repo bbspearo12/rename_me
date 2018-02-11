@@ -15,15 +15,21 @@ It will then get each file from the directory, read the account number and fetch
 File will then be copied to the required output folder with the account name previously fetched.
 
 **Note**
-The original billing file should contain account number in the 4th token (when tokenzied by `-`)
 
 ## Requirements
 
+### Original Billing statement naming convention
+```sh
+* The original billing file should contain account number in the 4th token (when tokenzied by `-`)
+```
+
 ### Template Excel sheet Requirements
+```sh
 Script assumes that the renaming template is a particular format
 * There is a sheet named `Renaming Template` (case sensitive)
 * Its 1st column should be headers
 * Column A is account numbers and Column D is New name
+```
 
 ### System Requirements
 ``` sh
