@@ -3,15 +3,28 @@ This is a script that renames AWS billing statements from their original downloa
 formats to human readable format with customer names and billing month and year.
 For instance `6760-2473901168722-San Jose Water Company-312628085799-2017-12-statement` will be renamed to `San Jose Water Company AWS_Dec 2017`
 
-**Note**
-The original billing file should contain account number in the 4th token (when tokenzied by `-`)
+## Flow
 
 Script requires 3 parameters as command line arguments
 * Zipfile consisting of billing statements
 * Renaming template excel sheet (has to be of a particular format, see below)
 * Output directory to which renamed files are to be copied
 
-System Dependencies
+Script will extract the zip file to a directory with the same name and directory as the zipfile.
+It will then get each file from the directory, read the account number and fetch the accountname from the file.
+File will then be copied to the required output folder with the account name previously fetched.
+
+**Note**
+The original billing file should contain account number in the 4th token (when tokenzied by `-`)
+
+## Requirements
+
+### Template Excel sheet Requirements
+Script assumes that the renaming template is a particular format
+* 1st column should be headers
+* Column A is account numbers and Column D is New name
+
+### System Requirements
 ``` sh
 * Python >= 2.7.10
 * openpyxl v2.5.0 python module (pip install openpyxl==2.5.0) 
