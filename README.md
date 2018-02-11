@@ -1,5 +1,5 @@
-# Renamer 
-This script AWS renames billing statements from their original downloaded 
+# Rename Me
+This is a script AWS renames billing statements from their original downloaded 
 formats to human readable format with customer names and billing month and year.
 For instance `6760-2473901168722-San Jose Water Company-312628085799-2017-12-statement` will be renamed to `San Jose Water Company AWS_Dec 2017`
 
@@ -20,7 +20,7 @@ System Dependencies
 
 #### Invocation
 ```sh
-python renamer.py --template billing-template.xlsx --outputdir renamed-statements --zipfile billing-artifacts.zip
+python rename_me.py --template billing-template.xlsx --outputdir renamed-statements --zipfile billing-artifacts.zip
 ```
 
 #### output

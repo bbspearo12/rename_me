@@ -5,14 +5,12 @@ import os
 from openpyxl import load_workbook
 import shutil
 
-
-
 class RENamer():
     parsedargs = dict()
     def __init__(self):
         parser = argparse.ArgumentParser(description='renamer is a script to rename statements')
-        parser.add_argument('--template', dest="template", required=True, help="template file path to look up account names")
-        parser.add_argument('--outputdir', dest="outputdir", required=True, help="output directory is where renamed files will be stored")
+        parser.add_argument('--template', dest="template", required=True, help="Template file path to look up account names")
+        parser.add_argument('--outputdir', dest="outputdir", required=True, help="Output directory is where renamed files will be stored")
         parser.add_argument('--zipfile', dest="zipfile", required=True, help="Zipfile path which contains the monthly statements")
         global parsedargs
         parsedargs = parser.parse_args()
@@ -34,7 +32,7 @@ class RENamer():
         zip_ref = zipfile.ZipFile(parsedargs.zipfile, 'r')
         zip_ref.extractall(parsedargs.zipfile[:-4])
         zip_ref.close()
-        print 'Extracted billing statemets from {0} to {1}'.format(parsedargs.zipfile, parsedargs.zipfile[:-4])
+        print 'Extracted billing statemets from {0} to {1}\n'.format(parsedargs.zipfile, parsedargs.zipfile[:-4])
 
     def rename_billing_statements(self):
         global parsedargs
@@ -68,6 +66,7 @@ class RENamer():
         accnos_names_map = dict()
         wb = load_workbook(parsedargs.template, data_only=True)
         ws = wb['Renaming Template']
+        # validate ws here
         for row in range(2, ws.max_row):
             accno = str(ws["A"+str(row)].value)
             name = str(ws["D"+str(row)].value)
