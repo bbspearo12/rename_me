@@ -1,5 +1,5 @@
 # Rename Me
-This is a script AWS renames billing statements from their original downloaded 
+This is a script that renames AWS billing statements from their original downloaded 
 formats to human readable format with customer names and billing month and year.
 For instance `6760-2473901168722-San Jose Water Company-312628085799-2017-12-statement` will be renamed to `San Jose Water Company AWS_Dec 2017`
 
