@@ -43,7 +43,7 @@ class RENamer():
         for root, dirs, files in os.walk(parsedargs.zipfile[:-4]):
             for billing_stmt in files:
                 total_file_count += 1
-                accno = str(billing_stmt).split("-")[3]
+                accno = str(billing_stmt).split("-")[3].lstrip('0')
                 if accno not in accmap:
                     skipped_file_count += 1
                     print 'Account {0} not found in template file, skipping {1}\n'.format(accno, billing_stmt)
@@ -52,7 +52,7 @@ class RENamer():
                 renamed_file_count += 1
 
         print '**** Summary ****\n' \
-              'Billing statements zip file: {0}\n' \
+              'Billing statements zip file {0}\n' \
               'Renaming Template {1}\n' \
               'Target folder {2}\n' \
               'Files to rename {3}\n' \
